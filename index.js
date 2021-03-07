@@ -32,7 +32,6 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
 const setGlobalMessage = (msg, timeout = 5000) => {
   globalMessage.innerText = msg;
   setTimeout(() => {
-    console.log("hei");
     globalMessage.innerText = "";
   }, timeout);
 };
