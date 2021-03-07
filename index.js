@@ -21,7 +21,7 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
   }
 
   /* Only between 1-50 */
-  if (parseInt(secretNumber.value) > 50 || parseInt(secretNumber.value) < 0) {
+  if (parseInt(secretNumber.value) > 50 || parseInt(secretNumber.value) < 1) {
     return setGlobalMessage(`${secretNumber.value} er ikke mellom 1-50`);
   }
 
