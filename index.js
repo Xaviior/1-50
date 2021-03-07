@@ -18,14 +18,14 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
 
   if (!reg.test(secretNumber.value)) {
     setGlobalMessage(`${secretNumber.value} er ikke et gyldig tall`);
-  }
+  } else setGlobalMessage("Hemmelig tall er valgt");
 
   /* Only between 1-50 */
   if (parseInt(secretNumber.value) > 50 || parseInt(secretNumber.value) < 0) {
     setGlobalMessage(`${secretNumber.value} er ikke mellom 1-50`);
   }
 
-  chosenNumber = secretNumber.value;
+  chosenNumber = parseInt(secretNumber.value);
 });
 
 /* Sets a global message. Default timeout before clearing is 5 seconds */
