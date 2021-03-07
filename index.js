@@ -38,11 +38,13 @@ document.getElementById("btnGuess").addEventListener("click", function (e) {
     for (let i = userNumber - 1; i < 50; i += 1) {
       const cross = createCross();
       allNumbers[i].append(...cross);
+      setGlobalMessage(`Tallet er mindre enn ${userNumber} `);
     }
   } else {
     for (let i = 0; i < userNumber; i += 1) {
       const cross = createCross();
       allNumbers[i].append(...cross);
+      setGlobalMessage(`Tallet er større enn ${userNumber}`);
     }
   }
 });
