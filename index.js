@@ -1,12 +1,12 @@
 let globalMessage = document.getElementById("globalMessage");
 
 // inputs
-const secretNumber = document.querySelector("#numberInput");
-const guessNumber = document.querySelector("#guessInput");
-const picNumberBtn = document.querySelector("#btnSave");
-const guessNumberBtn = document.querySelector("#btnGuess");
+const secretNumber = document.getElementById("#numberInput");
+const guessNumber = document.getElementById("#guessInput");
+const picNumberBtn = document.getElementById("#btnSave");
+const guessNumberBtn = document.getElementById("#btnGuess");
 // Number
-const allNumbers = document.querySelectorAll(".number");
+const allNumbers = document.getElementsByClassName(".number");
 let chosenNumber = 0;
 
 /* Hemmelig tall */
