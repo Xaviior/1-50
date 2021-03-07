@@ -17,7 +17,7 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
     return setGlobalMessage(disAllowed);
   }
 
-  setGlobalMessage("Hemmelig tall er valgt ");
+  setGlobalMessage("Hemmelig tall er valgt ✅");
   chosenNumber = parseInt(secretNumber.value);
   document.getElementById("secretNumberForm").style.visibility = "hidden";
 });
