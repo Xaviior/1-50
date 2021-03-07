@@ -7,7 +7,7 @@ const picNumberBtn = document.getElementById("btnSave");
 const guessNumberBtn = document.getElementById("btnGuess");
 // Number
 const allNumbers = document.getElementsByClassName("number");
-let chosenNumber = 0;
+let chosenNumber = Math.floor(Math.random() * 50); /* Set back to 0 */
 
 /* Hemmelig tall */
 document.getElementById("btnSave").addEventListener("click", function (e) {
@@ -25,11 +25,26 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
 // valgt tall
 document.getElementById("btnGuess").addEventListener("click", function (e) {
   e.preventDefault();
-  const disAllowed = verifyNumber(guessNumber.value);
+  const userNumber = parseInt(guessNumber.value);
+  const disAllowed = verifyNumber(userNumber);
   if (disAllowed) {
     return setGlobalMessage(disAllowed);
   }
-  setGlobalMessage(`Du har valgt tallet ${guessNumber.value} som ditt tall`);
+  /* setGlobalMessage(`Du har valgt tallet ${userNumber} som ditt tall`); */
+
+  if (userNumber === chosenNumber) {
+    setGlobalMessage(`${userNumber} ER RIKTIG! GRATULERER ⭐️🎉`);
+  } else if (userNumber > chosenNumber) {
+    for (let i = userNumber - 1; i < 50; i += 1) {
+      const cross = createCross();
+      allNumbers[i].append(...cross);
+    }
+  } else {
+    for (let i = 0; i < userNumber; i += 1) {
+      const cross = createCross();
+      allNumbers[i].append(...cross);
+    }
+  }
 });
 
 /* Verifties user input */
@@ -54,4 +69,15 @@ const setGlobalMessage = (msg) => {
   setTimeout(() => {
     globalMessage.innerText = "";
   }, 5000);
+};
+
+/* Creates the cross */
+const createCross = () => {
+  const leftCross = document.createElement("div");
+  const rightCross = document.createElement("div");
+
+  leftCross.className = "leftCross";
+  rightCross.className = "rightCross";
+
+  return [leftCross, rightCross];
 };
