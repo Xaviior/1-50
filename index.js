@@ -38,7 +38,7 @@ const verifyNumber = (input) => {
   const reg = /^\d+$/;
 
   if (!reg.test(input)) {
-    return `${input} er ikke et gyldig tall`;
+    return `${input} er ikke et gyldig tall 🛠`;
   }
 
   /* Only between 1-50 */
