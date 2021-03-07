@@ -30,7 +30,6 @@ document.getElementById("btnGuess").addEventListener("click", function (e) {
     return setGlobalMessage(disAllowed);
   }
   setGlobalMessage(`Du har valgt tallet ${guessNumber.value} som ditt tall`);
-  chosenNumber = parseInt(guessNumber.value);
 });
 
 /* Verifties user input */
