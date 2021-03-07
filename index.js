@@ -7,7 +7,7 @@ const picNumberBtn = document.getElementById("btnSave");
 const guessNumberBtn = document.getElementById("btnGuess");
 // Number
 const allNumbers = document.getElementsByClassName("number");
-let chosenNumber = Math.floor(Math.random() * 50); /* Set back to 0 */
+let chosenNumber = parseInt(secretNumber.value);
 
 /* Hemmelig tall */
 document.getElementById("btnSave").addEventListener("click", function (e) {
