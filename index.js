@@ -1,12 +1,12 @@
 let globalMessage = document.getElementById("globalMessage");
 
 // inputs
-const secretNumber = document.getElementById("#numberInput");
-const guessNumber = document.getElementById("#guessInput");
-const picNumberBtn = document.getElementById("#btnSave");
-const guessNumberBtn = document.getElementById("#btnGuess");
+const secretNumber = document.getElementById("numberInput");
+const guessNumber = document.getElementById("guessInput");
+const picNumberBtn = document.getElementById("btnSave");
+const guessNumberBtn = document.getElementById("btnGuess");
 // Number
-const allNumbers = document.getElementsByClassName(".number");
+const allNumbers = document.getElementsByClassName("number");
 let chosenNumber = 0;
 
 /* Hemmelig tall */
@@ -36,3 +36,22 @@ const setGlobalMessage = (msg, timeout = 5000) => {
     globalMessage.innerText = "";
   }, timeout);
 };
+
+// valgt tall
+document.getElementById("btnGuess").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  /* Regex validation - only number */
+  const reg = /^\d+$/;
+
+  if (!reg.test(guessNumber.value)) {
+    return setGlobalMessage(`${guessNumber.value} er ikke et gyldig tall`);
+  }
+
+  /* Only between 1-50 */
+  if (parseInt(guessNumber.value) > 50 || parseInt(guessNumber.value) < 1) {
+    return setGlobalMessage(`${guessNumber.value} er ikke mellom 1-50`);
+  }
+  setGlobalMessage(`Du har valgt tallet ${guessNumber.value} som ditt tall`);
+  chosenNumber = parseInt(guessNumber.value);
+});
