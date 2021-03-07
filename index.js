@@ -12,20 +12,20 @@ let chosenNumber = 0;
 /* Hemmelig tall */
 document.getElementById("btnSave").addEventListener("click", function (e) {
   e.preventDefault();
-  setGlobalMessage("Hemmelig tall er valgt");
 
   /* Regex validation - only number */
   const reg = /^\d+$/;
 
   if (!reg.test(secretNumber.value)) {
-    setGlobalMessage(`${secretNumber.value} er ikke et gyldig tall`);
+    return setGlobalMessage(`${secretNumber.value} er ikke et gyldig tall`);
   }
 
   /* Only between 1-50 */
   if (parseInt(secretNumber.value) > 50 || parseInt(secretNumber.value) < 0) {
-    setGlobalMessage(`${secretNumber.value} er ikke mellom 1-50`);
+    return setGlobalMessage(`${secretNumber.value} er ikke mellom 1-50`);
   }
 
+  setGlobalMessage("Hemmelig tall er valgt");
   chosenNumber = parseInt(secretNumber.value);
 });
 
