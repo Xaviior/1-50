@@ -1,10 +1,10 @@
 let globalMessage = document.getElementById("globalMessage");
 
 // inputs
-const secretNumber = document.getElementById("#numberInput");
-const guessNumber = document.getElementById("#guessInput");
-const picNumberBtn = document.getElementById("#btnSave");
-const guessNumberBtn = document.getElementById("#btnGuess");
+const secretNumber = document.getElementById("numberInput");
+const guessNumber = document.getElementById("guessInput");
+const picNumberBtn = document.getElementById("btnSave");
+const guessNumberBtn = document.getElementById("btnGuess");
 // Number
 const allNumbers = document.getElementsByClassName(".number");
 let chosenNumber = 0;
@@ -25,14 +25,15 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
     return setGlobalMessage(`${secretNumber.value} er ikke mellom 1-50`);
   }
 
-  setGlobalMessage("Hemmelig tall er valgt");
+  setGlobalMessage("Hemmelig tall er valgt ");
   chosenNumber = parseInt(secretNumber.value);
+  document.getElementById("secretNumberForm").style.visibility = "hidden";
 });
 
 /* Sets a global message. Default timeout before clearing is 5 seconds */
-const setGlobalMessage = (msg, timeout = 5000) => {
+const setGlobalMessage = (msg) => {
   globalMessage.innerText = msg;
   setTimeout(() => {
     globalMessage.innerText = "";
-  }, timeout);
+  }, 5000);
 };
