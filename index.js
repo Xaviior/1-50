@@ -25,7 +25,10 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
 // valgt tall
 document.getElementById("btnGuess").addEventListener("click", function (e) {
   e.preventDefault();
-  verifyNumber(guessNumber.value);
+  const disAllowed = verifyNumber(guessNumber.value);
+  if (disAllowed) {
+    return setGlobalMessage(disAllowed);
+  }
   setGlobalMessage(`Du har valgt tallet ${guessNumber.value} som ditt tall`);
   chosenNumber = parseInt(guessNumber.value);
 });
