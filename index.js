@@ -37,6 +37,9 @@ document.getElementById("btnGuess").addEventListener("click", function (e) {
   }
   /* setGlobalMessage(`Du har valgt tallet ${userNumber} som ditt tall`); */
   tries += 1;
+  console.log(guessNumber.value);
+  guessNumber.value = ""; /* Removes the guessed number after submitting */
+
   if (userNumber === chosenNumber) {
     setGlobalMessage(
       `${userNumber} ER RIKTIG! GRATULERER ⭐️🎉 Du brukte ${tries} forsøk 😀`
