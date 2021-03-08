@@ -1,5 +1,5 @@
 let globalMessage = document.getElementById("globalMessage");
-let trys = 0;
+let tries = 0;
 // inputs
 const secretNumber = document.getElementById("numberInput");
 const guessNumber = document.getElementById("guessInput");
@@ -31,10 +31,10 @@ document.getElementById("btnGuess").addEventListener("click", function (e) {
     return setGlobalMessage(disAllowed);
   }
   /* setGlobalMessage(`Du har valgt tallet ${userNumber} som ditt tall`); */
-  trys += 1;
+  tries += 1;
   if (userNumber === chosenNumber) {
     setGlobalMessage(
-      `${userNumber} ER RIKTIG! GRATULERER ⭐️🎉 Du brukte ${trys} forsøk 😀`
+      `${userNumber} ER RIKTIG! GRATULERER ⭐️🎉 Du brukte ${tries} forsøk 😀`
     );
     const greenCross = createCross("green");
     allNumbers[chosenNumber - 1].append(...greenCross);
