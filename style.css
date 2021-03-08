@@ -62,3 +62,17 @@ button {
   width: 2px;
   transform: rotate(-20deg);
 }
+.leftGreenCross {
+  position: absolute;
+  background-color: green;
+  height: 90%;
+  width: 2px;
+  transform: rotate(20deg);
+}
+.rightGreenCross {
+  position: absolute;
+  background-color: green;
+  height: 90%;
+  width: 2px;
+  transform: rotate(-20deg);
+}

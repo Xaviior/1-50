@@ -34,6 +34,8 @@ document.getElementById("btnGuess").addEventListener("click", function (e) {
 
   if (userNumber === chosenNumber) {
     setGlobalMessage(`${userNumber} ER RIKTIG! GRATULERER ⭐️🎉`);
+    const gCross = createGreenCross();
+    allNumbers[chosenNumber - 1].append(...gCross);
   } else if (userNumber > chosenNumber) {
     for (let i = userNumber - 1; i < 50; i += 1) {
       const cross = createCross();
@@ -70,7 +72,7 @@ const setGlobalMessage = (msg) => {
   globalMessage.innerText = msg;
   setTimeout(() => {
     globalMessage.innerText = "";
-  }, 5000);
+  }, 10000);
 };
 
 /* Creates the cross */
@@ -82,4 +84,14 @@ const createCross = () => {
   rightCross.className = "rightCross";
 
   return [leftCross, rightCross];
+};
+/* Creates the Green cross */
+const createGreenCross = () => {
+  const leftGreenCross = document.createElement("div");
+  const rightGreenCross = document.createElement("div");
+
+  leftGreenCross.className = "leftGreenCross";
+  rightGreenCross.className = "rightGreenCross";
+
+  return [leftGreenCross, rightGreenCross];
 };
