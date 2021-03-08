@@ -82,7 +82,7 @@ const setGlobalMessage = (msg) => {
   globalMessage.innerText = msg;
   setTimeout(() => {
     globalMessage.innerText = "";
-  }, 10000);
+  }, 5000);
 };
 
 /* Creates the cross */
