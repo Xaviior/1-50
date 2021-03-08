@@ -25,6 +25,10 @@
   align-items: center;
   font-size: 12px;
 }
+#guessInputForm {
+  visibility: hidden;
+}
+
 input[type="password"],
 input[type="text"] {
   background-color: #fce38a;

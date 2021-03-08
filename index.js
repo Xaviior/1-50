@@ -20,6 +20,7 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
   setGlobalMessage("Hemmelig tall er valgt ✅");
   chosenNumber = parseInt(secretNumber.value);
   document.getElementById("secretNumberForm").style.visibility = "hidden";
+  document.getElementById("guessInputForm").style.visibility = "visible";
 });
 
 // valgt tall
