@@ -3,12 +3,15 @@ let tries = 0;
 // inputs
 const secretNumber = document.getElementById("numberInput");
 const guessNumber = document.getElementById("guessInput");
-const picNumberBtn = document.getElementById("btnSave");
-const guessNumberBtn = document.getElementById("btnGuess");
 // Number
 const allNumbers = document.getElementsByClassName("number");
 let chosenNumber = parseInt(secretNumber.value);
 
+// reset button
+document.getElementById("resetBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+  location.reload();
+});
 /* Hemmelig tall */
 document.getElementById("btnSave").addEventListener("click", function (e) {
   e.preventDefault();
@@ -21,6 +24,7 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
   chosenNumber = parseInt(secretNumber.value);
   document.getElementById("secretNumberForm").style.visibility = "hidden";
   document.getElementById("guessInputForm").style.visibility = "visible";
+  document.getElementById("resetBtn").style.visibility = "visible";
 });
 
 // valgt tall
