@@ -1,4 +1,5 @@
 let globalMessage = document.getElementById("globalMessage");
+let globalMessageTimeoutId = null;
 let tries = 0;
 // inputs
 const secretNumber = document.getElementById("numberInput");
@@ -58,8 +59,12 @@ const verifyNumber = (input) => {
 
 /* Sets a global message. Default timeout before clearing is 5 seconds */
 const setGlobalMessage = (msg) => {
+  /* Clears out the previous message if there is one */
+  if (globalMessageTimeoutId) {
+    clearTimeout(globalMessageTimeoutId);
+  }
   globalMessage.innerText = msg;
-  setTimeout(() => {
+  globalMessageTimeoutId = setTimeout(() => {
     globalMessage.innerText = "";
   }, 5000);
 };
