@@ -5,7 +5,14 @@ const secretNumber = document.getElementById("numberInput");
 const guessNumber = document.getElementById("guessInput");
 // Number
 const allNumbers = document.getElementsByClassName("number");
-let chosenNumber = parseInt(secretNumber.value);
+let chosenNumber = null;
+
+for (let n of allNumbers) {
+  n.addEventListener("click", (e) => {
+    e.preventDefault();
+    makeGuess(e.target.innerText);
+  });
+}
 
 // reset button
 document.getElementById("resetBtn").addEventListener("click", function (e) {
@@ -30,35 +37,7 @@ document.getElementById("btnSave").addEventListener("click", function (e) {
 // valgt tall
 document.getElementById("btnGuess").addEventListener("click", function (e) {
   e.preventDefault();
-  const userNumber = parseInt(guessNumber.value);
-  const disAllowed = verifyNumber(userNumber);
-  if (disAllowed) {
-    return setGlobalMessage(disAllowed);
-  }
-  /* setGlobalMessage(`Du har valgt tallet ${userNumber} som ditt tall`); */
-  tries += 1;
-  console.log(guessNumber.value);
-  guessNumber.value = ""; /* Removes the guessed number after submitting */
-
-  if (userNumber === chosenNumber) {
-    setGlobalMessage(
-      `${userNumber} ER RIKTIG! GRATULERER ⭐️🎉 Du brukte ${tries} forsøk 😀`
-    );
-    const greenCross = createCross("green");
-    allNumbers[chosenNumber - 1].append(...greenCross);
-  } else if (userNumber > chosenNumber) {
-    for (let i = userNumber - 1; i < 50; i += 1) {
-      const cross = createCross();
-      allNumbers[i].append(...cross);
-      setGlobalMessage(`Tallet er mindre enn ${userNumber} `);
-    }
-  } else {
-    for (let i = 0; i < userNumber; i += 1) {
-      const cross = createCross();
-      allNumbers[i].append(...cross);
-      setGlobalMessage(`Tallet er større enn ${userNumber}`);
-    }
-  }
+  makeGuess(guessNumber.value);
 });
 
 /* Verifties user input */
@@ -97,4 +76,39 @@ const createCross = (cssColor = "red") => {
   rightCross.style.backgroundColor = cssColor;
 
   return [leftCross, rightCross];
+};
+
+const makeGuess = (userNumber) => {
+  /* Prevents the user to guess if the secret number is not set */
+  if (!chosenNumber) {
+    return;
+  }
+
+  const disAllowed = verifyNumber(userNumber);
+  if (disAllowed) {
+    return setGlobalMessage(disAllowed);
+  }
+  /* setGlobalMessage(`Du har valgt tallet ${userNumber} som ditt tall`); */
+  tries += 1;
+  guessNumber.value = ""; /* Removes the guessed number after submitting */
+
+  if (userNumber === chosenNumber) {
+    setGlobalMessage(
+      `${userNumber} ER RIKTIG! GRATULERER ⭐️🎉 Du brukte ${tries} forsøk 😀`
+    );
+    const greenCross = createCross("green");
+    allNumbers[chosenNumber - 1].append(...greenCross);
+  } else if (userNumber > chosenNumber) {
+    for (let i = userNumber - 1; i < 50; i += 1) {
+      const cross = createCross();
+      allNumbers[i].append(...cross);
+      setGlobalMessage(`Tallet er mindre enn ${userNumber} `);
+    }
+  } else {
+    for (let i = 0; i < userNumber; i += 1) {
+      const cross = createCross();
+      allNumbers[i].append(...cross);
+      setGlobalMessage(`Tallet er større enn ${userNumber}`);
+    }
+  }
 };
