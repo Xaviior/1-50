@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Guess My Number</title>
     <link rel="stylesheet" href="style.css" />
@@ -18,6 +21,7 @@
           id="numberInput"
           name="numberInput"
           placeholder="Velg et hemmelig tall"
+          pattern="[0-9]*"
         />
         <button id="btnSave">Lagre</button>
       </form>
@@ -81,6 +85,7 @@
             id="guessInput"
             name="guessInput"
             placeholder="Gjett et tall"
+            pattern="[0-9]*"
           />
           <button id="btnGuess">Gjett</button>
         </form>
