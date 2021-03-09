@@ -10,7 +10,7 @@ let chosenNumber = null;
 for (let n of allNumbers) {
   n.addEventListener("click", (e) => {
     e.preventDefault();
-    makeGuess(parseInt(e.target.innerText));
+    makeGuess(e.target.innerText);
   });
 }
 
@@ -88,6 +88,7 @@ const makeGuess = (userNumber) => {
   if (disAllowed) {
     return setGlobalMessage(disAllowed);
   }
+  userNumber = parseInt(userNumber);
   /* setGlobalMessage(`Du har valgt tallet ${userNumber} som ditt tall`); */
   tries += 1;
   guessNumber.value = ""; /* Removes the guessed number after submitting */
