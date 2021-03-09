@@ -59,9 +59,6 @@ const verifyNumber = (input) => {
 /* Sets a global message. Default timeout before clearing is 5 seconds */
 const setGlobalMessage = (msg) => {
   globalMessage.innerText = msg;
-  setTimeout(() => {
-    globalMessage.innerText = "";
-  }, 5000);
 };
 
 /* Creates the cross */
