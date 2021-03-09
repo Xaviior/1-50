@@ -10,7 +10,7 @@ let chosenNumber = null;
 for (let n of allNumbers) {
   n.addEventListener("click", (e) => {
     e.preventDefault();
-    makeGuess(e.target.innerText);
+    makeGuess(parseInt(e.target.innerText));
   });
 }
 
