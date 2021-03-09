@@ -64,6 +64,7 @@ const setGlobalMessage = (msg) => {
     clearTimeout(globalMessageTimeoutId);
   }
   globalMessage.innerText = msg;
+
   globalMessageTimeoutId = setTimeout(() => {
     globalMessage.innerText = "";
   }, 5000);
