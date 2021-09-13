@@ -8,10 +8,22 @@
 }
 
 .numberswrapper {
-  border: 1px solid rgb(89, 89, 89); /* Developer mode - remove before launch */
-  width: 98vw;
-  display: flex;
+  /*   border: 1px solid rgb(89, 89, 89); /* Developer mode - remove before launch */
+  height: 100vh;
+  /*   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . .";
   box-shadow: 5px 5px 15px rgb(156, 154, 154);
   background-color: #eaffd0;
 }
@@ -19,13 +31,14 @@
 .number {
   position: relative;
   border: 1px solid rgb(156, 154, 154); /* Developer mode - remove before launch */
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
   cursor: pointer;
+  padding: 9px;
 }
 #guessInputForm {
   width: 100%;
@@ -93,21 +106,30 @@ button {
     background-color: #fffbed;
   }
   .numberswrapper {
-    border: 1px solid rgb(89, 89, 89); /* Developer mode - remove before launch */
-    width: 65%;
-    display: flex;
+    /*     border: 1px solid rgb(89, 89, 89); /* Developer mode - remove before launch */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . . . . . . . . ."
+      ". . . . . . . . . ."
+      ". . . . . . . . . ."
+      ". . . . . . . . . ."
+      ". . . . . . . . . .";
+    /*     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     box-shadow: 5px 5px 15px rgb(156, 154, 154);
     background-color: #eaffd0;
   }
   .number {
     position: relative;
     border: 1px solid rgb(156, 154, 154); /* Developer mode - remove before launch */
-    width: 50px;
-    min-width: 50px;
-    height: 50px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,18 +149,33 @@ button {
   .numberswrapper {
     border: 1px solid rgb(89, 89, 89); /* Developer mode - remove before launch */
     width: 90%;
-    display: flex;
+    /*     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . ."
+      ". . . . .";
     box-shadow: 5px 5px 15px rgb(156, 154, 154);
     background-color: #eaffd0;
   }
   .number {
     position: relative;
     border: 1px solid rgb(156, 154, 154); /* Developer mode - remove before launch */
-    min-width: 25px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
